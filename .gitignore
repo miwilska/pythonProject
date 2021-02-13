@@ -3,3 +3,7 @@
 
 # IntelliJ project files
 .idea/
+
+# Example folder form the web
+/Przyklady_analityk-python-master/
+/Pola przyklady/

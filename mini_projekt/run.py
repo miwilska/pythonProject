@@ -20,4 +20,4 @@ while True:
     if x == '4': organizerAnalityka.wyświetlWizytówki()
     if x == '5': organizerAnalityka.dodajKupon()
     if x == '6': organizerAnalityka.wyświetlKupony()
-    if x == '7': organizerAnalityka.usunCos()
+    if x == '7': organizerAnalityka.usun_przedmiot()

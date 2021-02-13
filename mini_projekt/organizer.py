@@ -1,30 +1,31 @@
 from przedmioty import notatka, wizytówka, kupon
-global __number_of_element
+#global __number_of_element
 
 class organizer:
     __właściciel = ""
     __bazaDanych = []
-
+    __nastepny_numer_elementu = 1
 
     def __init__(self, właściciel):
         self.właściciel = właściciel
-        self.__number_of_element = -1
 
 
     def dodajNotatkę(self):
         priorytet = input("Priorytet:")
         tytuł = input("Tytuł:")
         treść = input("Treść:")
-        self.__number_of_element += 1
-        nowaNotatka = notatka(priorytet, tytuł, treść, self.__number_of_element)
+        self.numer_elementu = organizer.__nastepny_numer_elementu
+        organizer.__nastepny_numer_elementu += 1
+        nowaNotatka = notatka(priorytet, tytuł, treść, self.numer_elementu)
         self.__bazaDanych.append(nowaNotatka)
 
     def dodajKupon(self):
         priorytet = input("Priorytet:")
         tytuł = input("Tytuł:")
         wartosc = input("Wartosc:")
-        self.__number_of_element += 1
-        nowyKupon = kupon(priorytet, tytuł, wartosc, self.__number_of_element)
+        self.numer_elementu = organizer.__nastepny_numer_elementu
+        organizer.__nastepny_numer_elementu += 1
+        nowyKupon = kupon(priorytet, tytuł, wartosc, self.numer_elementu)
         self.__bazaDanych.append(nowyKupon)
 
     def dodajWizytówkę(self):
@@ -32,8 +33,9 @@ class organizer:
         imię = input("Imię:")
         nazwisko = input("Nazwisko:")
         telefon = input("Telefon:")
-        self.__number_of_element += 1
-        nowaWizytówka = wizytówka(priorytet, imię, nazwisko, telefon, self.__number_of_element)
+        self.numer_elementu = organizer.__nastepny_numer_elementu
+        organizer.__nastepny_numer_elementu += 1
+        nowaWizytówka = wizytówka(priorytet, imię, nazwisko, telefon, self.numer_elementu)
         self.__bazaDanych.append(nowaWizytówka)
 
     def wyświetlNotatki(self):
@@ -55,7 +57,7 @@ class organizer:
             if i.typ == 'kupon':
                 print(i)
 
-    def usunCos(self):
+    def usun_przedmiot(self):
 
         print("Wyswietlam liste elekemtnów do usunięcia: ")
         for i in self.__bazaDanych :
